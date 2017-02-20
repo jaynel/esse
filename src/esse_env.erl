@@ -32,7 +32,7 @@
 -spec get_sse_send_timeout () -> pos_integer().
 
 get_max_acceptors    () -> get_app_env(max_acceptors,        2).
-get_max_sessions     () -> get_app_env(max_sessions,         2).
+get_max_sessions     () -> get_app_env(max_sessions,         5).
 get_retry_frequency  () -> get_app_env(retry_frequency,  30000).
 get_sse_port         () -> get_app_env(sse_port,          9997).
 get_sse_send_timeout () -> get_app_env(sse_send_timeout,  3000).

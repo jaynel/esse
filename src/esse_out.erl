@@ -79,7 +79,8 @@ common_headers() ->
     << "Date: ",          Date   /binary,      ?CR, ?LF,
        "Server: ",        Server /binary,      ?CR, ?LF,
        "Content-Type: ",  "text/event-stream", ?CR, ?LF,
-       "Cache-Control: ", "no-store",          ?CR, ?LF >>.  % no-cache?
+       "Cache-Control: ", "no-store",          ?CR, ?LF,  % no-cache?
+       "Access-Control-Allow-Origin:", "http://127.0.0.1:9998" >>.
 
 get_version() ->
     list_to_binary(application:get_env(esse, version, "Dev")).
@@ -103,12 +104,17 @@ make_content(Body) ->
 -spec sequence_event (id(), event(), [data()]) -> sse_out().
     
 %%% Default event type 'message'
-data_only([])           -> <<":", ?LF>>;
-data_only([Data])       ->  [make_data_only(Data), ?LF];
-data_only([_|_] = Data) -> [[make_data_only(Line) || Line <- Data], ?LF].
+data_only([    ])       -> <<":", ?LF>>;
+data_only([<<>>])       -> <<":", ?LF>>;
+data_only([Data])       -> [make_data_only(Data), ?LF];
+data_only([_|_] = Data) ->
+    case [make_data_only(Line) || Line <- Data, Line =/= [], Line =/= <<>>] of
+        []    -> <<":", ?LF>>;
+        Lines -> [Lines, ?LF]
+    end.
 
-make_data_only(Data) when is_binary (Data) ->  <<"data: ",   Data/binary, ?LF>>;
-make_data_only(Data) when is_list   (Data) -> [<<"data: ">>, Data,        ?LF].
+make_data_only(Data) when is_list   (Data) -> [<<"data: ">>, Data,        ?LF];
+make_data_only(Data) when is_binary (Data) ->  <<"data: ",   Data/binary, ?LF>>.
 
 %%% Explicit event type
 data_event(Event, [])           ->   <<"event: ", Event/binary, ?LF,     "data: ", ?LF, ?LF>>;
