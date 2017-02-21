@@ -11,7 +11,10 @@
 %%% @end
 %%%------------------------------------------------------------------------------
 -module(esse_user_agent).
+
+-copyright("(c) 2016-2017, DuoMark International, Inc.  All rights reserved").
 -author('Jay Nelson <jay@duomark.com>').
+-license('New BSD').
 
 %%% External API
 -export([
@@ -90,7 +93,6 @@ parse_packets(Bin_Request, Socket) ->
             [Req | parse_headers(Rest, Socket)]
     end.
 
-parse_headers({error, _} = Err, _Socket) -> [Err];
 parse_headers(Bin_Request, Socket) ->
     case erlang:decode_packet(httph, Bin_Request, []) of
         {error, _} = Err1    -> [Err1];

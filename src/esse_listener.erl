@@ -20,7 +20,10 @@
 %%% @end
 %%%------------------------------------------------------------------------------
 -module(esse_listener).
+
+-copyright("(c) 2016-2017, DuoMark International, Inc.  All rights reserved").
 -author('Jay Nelson <jay@duomark.com>').
+-license('New BSD').
 
 -behaviour(gen_server).
 

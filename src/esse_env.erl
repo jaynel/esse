@@ -12,7 +12,10 @@
 %%% @end
 %%%------------------------------------------------------------------------------
 -module(esse_env).
+
+-copyright("(c) 2017, DuoMark International, Inc.  All rights reserved").
 -author('Jay Nelson <jay@duomark.com>').
+-license('New BSD').
 
 %% External API
 -export([get_max_acceptors/0,
@@ -27,7 +30,7 @@
 %%%===================================================================
 -spec get_max_acceptors    () -> pos_integer().
 -spec get_max_sessions     () -> pos_integer().
--spec get_retry_frequency  () -> sse_out:millis().
+-spec get_retry_frequency  () -> esse_out:millis().
 -spec get_sse_port         () -> pos_integer().
 -spec get_sse_send_timeout () -> pos_integer().
 

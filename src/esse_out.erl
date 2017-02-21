@@ -10,7 +10,10 @@
 %%% @end
 %%%------------------------------------------------------------------------------
 -module(esse_out).
+
+-copyright("(c) 2016-2017, DuoMark International, Inc.  All rights reserved").
 -author('Jay Nelson <jay@duomark.com>').
+-license('New BSD').
 
 %%% External API
 -export([retry/1]).

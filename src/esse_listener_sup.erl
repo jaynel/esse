@@ -13,7 +13,10 @@
 %%% @end
 %%%------------------------------------------------------------------------------
 -module(esse_listener_sup).
+
+-copyright("(c) 2016-2017, DuoMark International, Inc.  All rights reserved").
 -author('Jay Nelson <jay@duomark.com>').
+-license('New BSD').
 
 -behaviour(supervisor).
 

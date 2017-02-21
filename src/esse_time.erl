@@ -9,7 +9,10 @@
 %%% @end
 %%%------------------------------------------------------------------------------
 -module(esse_time).
+
+-copyright("(c) 2016-2017, DuoMark International, Inc.  All rights reserved").
 -author('Jay Nelson <jay@duomark.com>').
+-license('New BSD').
 
 -export([timestamp/0, calendar_time/1]).
 
