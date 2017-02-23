@@ -9,7 +9,8 @@
 %%%   When the connection ends, its supervisor will restart it as a new
 %%%   Listen Socket acceptor.
 %%%
-%%%   A new connection is spawned using cxy_ctl limits, as a new esse_session.
+%%%   A new connection is spawned provided the active count in esse_sessions
+%%%   ets table will not exceed the maximum number of sessions allowed.
 %%%   This ensures a static number of esse_listener instances determined at
 %%%   initialization, but a variable number of esse_stream instances without
 %%%   exceeding the maximum number of active sessions. If a connection is

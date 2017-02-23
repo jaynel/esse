@@ -8,8 +8,7 @@
 %%%   strategies to ensure that ets tables are built and exist before they
 %%%   are used.
 %%%
-%%%   The session manager creates and owns the 'esse_sessions' ets table,
-%%%   and initializes the epocxy cxy_ctl limits for number of active sessions.
+%%%   The session manager creates and owns the 'esse_sessions' ets table.
 %%%
 %%%   The esse_listener_sup manages the listen socket and acceptors waiting
 %%%   for client connections. The acceptors are simple_one_for_one workers

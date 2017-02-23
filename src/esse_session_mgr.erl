@@ -4,8 +4,9 @@
 %%% @reference The license is based on the template for Modified BSD from
 %%%   <a href="http://opensource.org/licenses/BSD-3-Clause">OSI</a>
 %%% @doc
-%%%   Owner of sse_sessions ets table, and initializer of epocxy
-%%%   cxy_ctl limits for acceptors and listener sessions.
+%%%   Owner of sse_sessions ets table which tracks all active
+%%%   sessions and keeps a limit on the number of simultaneously
+%%%   active sessions.
 %%%
 %%% @since v0.1.1
 %%% @end
